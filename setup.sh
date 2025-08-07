@@ -17,4 +17,4 @@ wget -O embeddings/hf_cleaned_faiss_index.bin https://huggingface.co/datasets/ve
 wget -O embeddings/hf_cleaned.json https://huggingface.co/datasets/verma001mani/hf_books_embed/resolve/main/hf_cleaned.json
 
 echo "Starting Flask app with Gunicorn..."
-gunicorn server:app --bind 0.0.0.0:8000
+echo "Finished"
