@@ -7,4 +7,5 @@ pandas
 
 git+https://github.com/Verma001manik/recommendme.git
 gunicorn
+flask
 
