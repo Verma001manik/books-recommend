@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #3f51b5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 18px;
+            font-size: 16px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: #3f51b5;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #303f9f;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .selected-book {
+            background-color: #fff8e1;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .book-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #3f51b5;
+            text-decoration: none;
+        }
+
+        .book-category {
+            color: #777;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .no-results {
+            text-align: center;
+            color: red;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <header>
+        <h1>📚 Book Recommender</h1>
+    </header> -->
+
+    <form method="POST" action="/search">
+        <input type="text" name="query" placeholder="Search for a book..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="container">
+
+        {% if selected_movie %}
+        <div class="selected-book">
+            <h2>{{ selected_movie.title }}</h2>
+            <p><em>Category: {{ selected_movie.category }}</em></p>
+            <p><em>Category: {{ selected_movie.author }}</em></p>
+            <p>{{ selected_movie.desc }}</p>
+        </div>
+        {% endif %}
+
+        {% if no_results %}
+        <p class="no-results">No results found.</p>
+        {% endif %}
+
+        <div class="book-grid">
+            {% for book in results %}
+            <div class="book-card">
+                <a class="book-title" href="/search?q={{ book.id }}">{{ book.title }}</a>
+                <!-- <div class="book-category">{{ book.category }}</div> -->
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</body>
+
+</html>

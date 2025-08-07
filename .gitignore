@@ -1,0 +1,20 @@
+# Ignore virtual environments
+venv/
+.venv/
+
+# Ignore data files (e.g., downloaded indexes, maps)
+data/
+data/*.json
+data/*.bin
+
+# Ignore local embeddings (if generated)
+embeddings/
+embeddings/*.json
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# OS-specific metadata
+.DS_Store
+Thumbs.db

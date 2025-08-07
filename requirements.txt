@@ -1,0 +1,7 @@
+sentence-transformers
+faiss-cpu
+numpy
+pandas
+torch 
+git+https://github.com/Verma001manik/recommendme.git
+gunicorn
