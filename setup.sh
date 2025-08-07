@@ -12,7 +12,7 @@ pip install gunicorn
 pip install git+https://github.com/Verma001manik/recommendme.git
 
 echo "Downloading FAISS index and metadata..."
-mkdir -p data
+mkdir -p embeddings
 wget -O data/hf_cleaned_faiss_index.bin https://huggingface.co/datasets/verma001mani/hf_books_embed/resolve/main/hf_cleaned_faiss_index.bin
 wget -O data/hf_cleaned.json https://huggingface.co/datasets/verma001mani/hf_books_embed/resolve/main/hf_cleaned.json
 
