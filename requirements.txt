@@ -1,7 +1,10 @@
+torch==2.0.1
 sentence-transformers
+
 faiss-cpu
 numpy
 pandas
-torch 
+
 git+https://github.com/Verma001manik/recommendme.git
 gunicorn
+
